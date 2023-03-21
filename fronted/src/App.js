@@ -17,6 +17,9 @@ function App() {
         >
           Learn React
         </a>
+        <button className="btn btn-primary btn-lg">
+          <i className='fab fa-react'></i>
+        </button>
       </header>
     </div>
   );
