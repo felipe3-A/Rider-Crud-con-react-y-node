@@ -15,12 +15,12 @@ export const getdatos = async (req, res) => {
 // Mostrar un registro
 export const getdato = async (req, res) => {
     try {
-        const dato = model.findAll({
+        const dato = await model.findAll({
             where: {
                 id: req.params.id
             }
         })
-        res.json(dato)
+        res.json(dato[0])
     } catch (error) {
         res.json({ message: error.message })
     }
@@ -37,7 +37,7 @@ export const postdato = async (req, res) => {
     }
 }
 // Actualizar registro
-export const Putdato = async (req, res) => {
+export const putdato = async (req, res) => {
     try {
         await model.update(req.body, {
             where: { id: req.params.id }
@@ -52,8 +52,8 @@ export const Putdato = async (req, res) => {
 // Eliminar registro
 export const deletedato = async (req, res) => {
     try {
-        await model.destroy(req.body, {
-            where: { id: req.params.id }
+        await model.destroy({
+            where: { id : req.params.id }
         })
         res.json({
             "message": "registro Eliminado"

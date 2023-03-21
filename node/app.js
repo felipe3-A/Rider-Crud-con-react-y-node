@@ -10,7 +10,7 @@ const app=express()
 // Usar app
 app.use(cors())
 app.use(express.json());
-app.use('/tabla1',router)
+app.use('/blogs',router)
 
 try {
     await db.authenticate()
@@ -20,7 +20,7 @@ try {
 }
 
 // app.get('/',(req,res)=>{
-//     res.send('Hola mundo')
+//     res.send('Hola mundo 3')
 // })
 
 // Crear puerto del servidor 19 
