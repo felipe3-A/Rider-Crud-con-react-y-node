@@ -1,8 +1,8 @@
 // Importar librerias
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-
+import {Link} from 'react-router-dom'
+import '../App.css';
 const URI = 'http://localhost:8000/blogs/'
 
 const CompShowBlogs = () => {
@@ -17,13 +17,14 @@ const CompShowBlogs = () => {
     }
     // Eliminar un dato
     const deletedato = async (id) => {
-        axios.delete(`${URI}/${id}`)
+       await axios.delete(`${URI}/${id}`)
         getdatos()
     }
     return (
         <div className='contenedor'>
             <div className='row'>
                 <div className='col'>
+                    <Link to='/create' className='btn btn-primary mt-2 mb-2'><i className='fas fa-plus'></i></Link><br />
                     <div className='table'>
                         <thead className='table-primary'>
                             <tr>
@@ -31,15 +32,20 @@ const CompShowBlogs = () => {
                                 <th>Contenido</th>
                                 <th>Acciones</th>
                                 <th>
-                                    <link to={`/edit/${blog.id}`}className="btn btn-info">Editar</link>
+                                    {/* <link to={`/edit/${blog.id}`}className="btn btn-info">Editar</link> */}
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            {blogs.map ( (blog)=>(
+                            {blogs.map ((blog)=>(
                                 <tr key={blog.id}>
-                                    <th>{blog.titulo} </th>
-                                    <th>{blog.contenido} </th>
+                                    <td>{blog.titulo} </td>
+                                    <td>{blog.contenido} </td>
+                                    <td>
+                                   
+                                        <Link to={`/edit/${blog.id}`} className="btn btn-info"><i className="fa-solid fa-pen-to-square"></i></Link>
+                                        <button onClick={()=>deletedato(blog.id)} className="btn btn-danger"><i className="fa-solid fa-trash"></i></button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -48,6 +54,8 @@ const CompShowBlogs = () => {
             </div>
 
         </div>
+       
     )
 }
+
 export default CompShowBlogs

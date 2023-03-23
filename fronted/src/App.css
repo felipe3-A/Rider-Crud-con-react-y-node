@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+ display: flex;
 }
 
 .App-logo {
@@ -15,17 +15,18 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: 100vh;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #00ffff;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +36,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* Estilos de la tabla */
+.tabla{
+  margin-left: 96px;
+  width: 50%;
+  margin-top: 30px;
+
+}
+th{
+width: 40%;
+}
+:link{
+margin-right:30px;
+}
+/* Botones */
+a{
+  margin-left: 40px;
 }
